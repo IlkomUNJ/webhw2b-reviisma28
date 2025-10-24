@@ -1,0 +1,14 @@
+@extends('layouts/master')
+
+@section('title', 'Tambah Layanan')
+
+@section('content')
+<h2>Tambah Layanan Baru</h2>
+<form method="POST" action="/seller/add" enctype="multipart/form-data">
+  Nama: <input type="text" name="name"><br>
+  Harga: <input type="number" name="price"><br>
+  Deskripsi: <textarea name="description"></textarea><br>
+  Gambar (path): <input type="text" name="image" placeholder="/menu/1.jpg"><br>
+  <button type="submit">Simpan</button>
+</form>
+@endsection

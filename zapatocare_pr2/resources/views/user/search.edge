@@ -1,0 +1,28 @@
+@extends('layouts/master')
+
+@section('title', 'Search')
+
+@section('content')
+<section class="layanan">
+  <h2>Hasil Pencarian</h2>
+  <form method="GET" action="/search">
+    <input type="text" name="q" placeholder="Cari layanan...">
+    <button type="submit">Cari</button>
+  </form>
+
+  @if(services && services.length > 0)
+    <div class="row">
+    @each(s in services)
+      <div class="layanan-card">
+        <img src="{{ s.image || '/menu/default.jpg' }}" alt="service" class="layanan-card-img">
+        <h3 class="layanan-card-title">{{ s.name }}</h3>
+        <p class="layanan-card-price">IDR {{ s.price }}</p>
+        <a href="/product/{{ s.id }}">Detail</a>
+      </div>
+    @endeach
+    </div>
+  @else
+    <p>Tidak ada layanan ditemukan.</p>
+  @endif
+</section>
+@endsection

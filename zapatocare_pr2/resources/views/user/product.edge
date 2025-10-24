@@ -1,0 +1,15 @@
+@extends('layouts/master')
+
+@section('title', product ? product.name : 'Detail')
+
+@section('content')
+<div class="product-detail">
+  <h2>{{ product.name }}</h2>
+  <img src="{{ product.image || '/about.jpg' }}" alt="{{ product.name }}" style="max-width:300px"/>
+  <p>Harga: IDR {{ product.price }}</p>
+  <p>{{ product.description }}</p>
+  <form method="POST" action="/wishlist/add/{{ product.id }}">
+    <button type="submit">Tambahkan ke Wishlist</button>
+  </form>
+</div>
+@endsection

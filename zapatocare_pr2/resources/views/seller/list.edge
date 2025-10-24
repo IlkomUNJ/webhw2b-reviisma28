@@ -1,0 +1,17 @@
+@extends('layouts/master')
+
+@section('title', 'Daftar Layanan')
+
+@section('content')
+<h2>Daftar Layanan (Seller)</h2>
+<a href="/seller/add">Tambah Layanan</a>
+@if(services && services.length > 0)
+  <ul>
+    @each(s in services)
+      <li>{{ s.name }} - IDR {{ s.price }}</li>
+    @endeach
+  </ul>
+@else
+  <p>Belum ada layanan.</p>
+@endif
+@endsection

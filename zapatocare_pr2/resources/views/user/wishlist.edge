@@ -1,0 +1,16 @@
+@extends('layouts/master')
+
+@section('title', 'Wishlist')
+
+@section('content')
+<h2>Wishlist Anda</h2>
+@if(wishlist && wishlist.length > 0)
+  <ul>
+    @each(w in wishlist)
+      <li>{{ w.service.name }} - IDR {{ w.service.price }}</li>
+    @endeach
+  </ul>
+@else
+  <p>Wishlist kosong.</p>
+@endif
+@endsection
